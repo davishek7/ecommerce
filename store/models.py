@@ -25,7 +25,6 @@ class Product(models.Model):
 		except:
 			url=''
 		return url
-	
 
 class Order(models.Model):
 	customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
@@ -45,7 +44,6 @@ class Order(models.Model):
 				shipping=True
 		return shipping
 	
-
 	@property
 	def get_cart_items(self):
 		orderitems=self.orderitem_set.all()
@@ -79,7 +77,6 @@ class ShippingAddress(models.Model):
 	city=models.CharField(max_length=200,null=True)
 	state=models.CharField(max_length=200,null=True)
 	pincode=models.IntegerField(null=True)
-	country=models.CharField(max_length=200,null=True)
 	date_added=models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 import json
 import datetime
 
@@ -38,7 +39,7 @@ def cart(request):
 
 	return render(request,'store/cart.html',context)
 
-
+@login_required
 def checkout(request):
 
 	if request.user.is_authenticated:
@@ -104,7 +105,6 @@ def processOrder(request):
 					city=data['shipping']['city'],
 					state=data['shipping']['state'],
 					pincode=data['shipping']['pincode'],
-					country=data['shipping']['country'],
 				)
 
 	else:

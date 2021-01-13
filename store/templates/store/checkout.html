@@ -47,12 +47,6 @@
 						<input type="text" name="pincode" class="form-control" 
 						placeholder="Pin Code..." required>
 					</div>
-
-					<div class="form-field">
-						<input type="text" name="country" class="form-control" 
-						placeholder="Country..." required>
-					</div>
-
 				</div>
 
 				<hr>
@@ -134,7 +128,6 @@
 			'city':null,
 			'state':null,
 			'pincode':null,
-			'country':null,
 		}
 
 		if(shipping!='False'){
@@ -142,7 +135,6 @@
 			shippingInfo.city=form.city.value
 			shippingInfo.state=form.state.value
 			shippingInfo.pincode=form.pincode.value
-			shippingInfo.country=form.country.value
 		}
 
 		if(user =='AnonymousUser'){
