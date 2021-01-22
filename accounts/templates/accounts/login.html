@@ -1,0 +1,32 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content%} 
+<img src="{% static 'images/login.png' %}" style="margin:auto;display:block;">
+        <div class="box-element">
+              <div>
+                <h3 style="text-align:center;">Login</h3>
+              </div>
+                <hr>
+                <form method="post" action="">
+                  {% csrf_token %}
+                <div class="form-group">
+                    {{form.username|as_crispy_field}}
+                  </div>
+                  <div class="form-group">
+                    {{form.password|as_crispy_field}}
+                    </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label class="form-check-label" for="remember"><small>Remember Me</small></label>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-block btn-primary"><i class="fas fa-user-lock"></i>&#32;Login</button>
+                  <small>Forgot Password? Click <a href="">here</a>.</small>
+            </form>
+            <hr>
+            <div>
+            <p style="text-align: center;"><small>New User ? </small></p>
+            <a class="btn btn-block btn-outline-success btn-sm" href="{% url 'register' %}" style="text-align: center;">Register Here</a>
+            </div>
+        </div>
+  {% endblock %}

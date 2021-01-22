@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 import json
 import datetime
+from accounts.decorators import unauthenticated_user,allowed_users,admin_only
 
 from .models import *
 from .utils import cookieCart
@@ -39,7 +40,7 @@ def cart(request):
 
 	return render(request,'store/cart.html',context)
 
-@login_required
+@login_required(login_url='login')
 def checkout(request):
 
 	if request.user.is_authenticated:

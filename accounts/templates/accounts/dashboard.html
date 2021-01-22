@@ -1,0 +1,57 @@
+{%extends 'store/main.html'%}
+
+{%block content%}
+
+<br>
+
+{%include 'accounts/status.html'%}
+<div class="row">
+    <div class="col-md-5">
+        <h5>Customers:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="#">Create Customer</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Customer</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{customer.username}}</td>
+                    <td>{{customer.email}}</td>
+                    <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-info fa-lg"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h5>Last 5 Orders:</h5>
+        <hr>
+        <div class="card card-body">
+            
+            <table class="table table-sm">
+                <tr>
+                    <th>Product</th>
+                    <th>Date Ordered</th>
+                    <th>Transaction ID</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+                {%for item in items%}
+                <tr>
+                    <td>{{item.product.name}}</td>
+                    <td>{{item.order.date_ordered}}</td>
+                    <td>{{item.order.transaction_id}}</td>
+                    <td><a class="btn btn-sm btn-info" href=""><i class="fas fa-edit fa-lg"></i></a></td>
+                    <td><a class="btn btn-sm btn-danger" href=""><i class="far fa-trash-alt fa-lg"></i>/a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}
+<br>

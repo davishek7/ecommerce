@@ -1,0 +1,23 @@
+{% extends 'accounts/main.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content%}
+		<img src="{% static 'images/register.png' %}" style="margin:auto;display:block;"> 
+        <div class="box-element">
+            <form method="post" action="">
+                <h3>Register</h3>
+                <hr>
+                <div class="form-group">
+                	{%csrf_token%}
+                    {{form.username|as_crispy_field}}
+                    {{form.email|as_crispy_field}}
+                    <div class="row">
+                      <div class="col-md-5">{{form.password1|as_crispy_field}}</div>
+                      <div class="col-md-7">{{form.password2|as_crispy_field}}</div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-sm btn-block btn-primary"><i class="fas fa-user-plus"></i>&#32;Register</button>
+                  <small>Already a customer? Login <a href="{% url 'login' %}">here</a>.</small>
+            </form>
+        </div>
+{% endblock %}

@@ -12,13 +12,15 @@
 				<div id="user_info">
 
 					<div class="form-field">
-						<input type="text" name="name" class="form-control" 
-						placeholder="Name..." required>
+						<!--input type="text" name="name" class="form-control" 
+						placeholder="Name..." value={{request.user.username}} required-->
+						Name: {{request.user.username}}
 					</div>
 
 					<div class="form-field">
-						<input type="email" name="email" class="form-control" 
-						placeholder="Email..." required>
+						<!--input type="email" name="email" class="form-control" 
+						placeholder="Email..." required-->
+						Email:{{request.user.email}}
 					</div>
 
 				</div>

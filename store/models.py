@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 
 class Customer(models.Model):
 	user=models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
-	name=models.CharField(max_length=200,null=True)
-	email=models.CharField(max_length=200,null=True)
+	image=models.ImageField(default='default.jpg',upload_to='profile_pics')
 
 	def __str__(self):
-		return self.name
+		return self.user.username
 
 class Product(models.Model):
 	name=models.CharField(max_length=200,null=True)

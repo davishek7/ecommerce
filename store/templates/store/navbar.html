@@ -8,16 +8,30 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{%url 'store'%}">Store <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{%url 'store'%}">Store</a>
       </li>
     </ul>
+    <ul class="navbar-nav mr-auto ml-auto">
+      <div class="input-group input-group-sm mb-3">
+      <input type="search" placeholder="Search Products" aria-label="Search">
+      <div class="input-group-append">
+      <button class="btn btn-success btn-sm my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </div>
+    </form>
+  </ul>
+  {% if user.is_authenticated %}
+  <div class="form-inline my-2 my-lg-0">
+      <a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i>&#32;Profile</a>
+      <a class="nav-link" href="{% url 'orders' %}"><i class="fas fa-boxes"></i>&#32;Orders</a>
+      <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>&#32;Logout</a>
+  </div>
+  {% else %}
     <div class="form-inline my-2 my-lg-0">
-      <a href="#" class="btn btn-sm btn-warning">Login</a>
-
+      <a href="{% url 'login' %}" class="btn btn-sm btn-warning"><i class="fas fa-user-lock"></i>&#32;Login</a>
+  {% endif %}
       <a href="{% url 'cart' %}">
-        <img id="cart-icon" src="{%static 'images/cart.png'%}">
+        <i class="fas fa-shopping-cart text-light"></i>&#32;<b style="color:#fff;font-size: 20px;">{{cartItems}}</b>
       </a>
-      <p id="cart-total">{{cartItems}}</p>
     </div>
   </div>
 </nav>
