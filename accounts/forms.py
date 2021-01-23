@@ -12,7 +12,6 @@ class CreateUserForm(UserCreationForm):
 
 		for fieldname in ['username','password1','password2']:
 			self.fields[fieldname].help_text=None
-		Field('username', css_class="form-control")
 
 	def clean(self):
 		email=self.cleaned_data.get('email')

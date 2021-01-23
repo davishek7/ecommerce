@@ -29,7 +29,7 @@
     <div class="form-inline my-2 my-lg-0">
       <a href="{% url 'login' %}" class="btn btn-sm btn-warning"><i class="fas fa-user-lock"></i>&#32;Login</a>
   {% endif %}
-      <a href="{% url 'cart' %}">
+      <a href="{% url 'cart' %}" class="btn btn-outline-link">
         <i class="fas fa-shopping-cart text-light"></i>&#32;<b style="color:#fff;font-size: 20px;">{{cartItems}}</b>
       </a>
     </div>
